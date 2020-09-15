@@ -15,6 +15,8 @@ export class Player {
   private scene: GameScene;
 
   private velocity = { x: 0, y: 0 };
+  private invincible = 0;
+  life = 3;
 
   constructor(scene: GameScene) {
     this.rect = scene.add.rectangle(
@@ -84,6 +86,19 @@ export class Player {
     ) {
       this.rect.y = Constants.SCREEN_HEIGHT - wallWidth - Player.HEIGHT / 2;
       this.velocity.y = 0;
+    }
+    if (
+      this.invincible === 0 &&
+      this.scene.stage?.grid.isCollide(this.x(), this.y())
+    ) {
+      this.invincible = 60;
+      this.life--;
+    }
+    if (this.invincible > 0) {
+      this.rect.visible = this.scene.score % 2 === 0;
+      this.invincible--;
+    } else {
+      this.rect.visible = true;
     }
   }
 }

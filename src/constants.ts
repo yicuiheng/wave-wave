@@ -13,7 +13,7 @@ export const ENV = {
   l: 10,
   g: 0.01,
   iter: 10,
-  lv: 1,
+  lv: 3.0,
 };
 
 export class Color {

@@ -6,7 +6,7 @@ import { Grid } from "./grid";
 
 export class Stage {
   private particles: Array<Particle> = [];
-  private grid = new Grid();
+  grid = new Grid();
   private scene: GameScene;
   n0: number;
   lambda: number;
@@ -247,5 +247,8 @@ export class Stage {
 
   addShot(x: number, y: number): void {
     this.particles.push(Particle.shot(this.scene, x, y));
+  }
+  addParticle(x: number, y: number): void {
+    this.particles.push(new Particle(this.scene, x, y, Type.Water));
   }
 }

@@ -4,8 +4,6 @@ import * as Constants from "../../constants";
 import * as Util from "../../util";
 import { GameScene } from "../game";
 
-const GRAVITY = 0.9;
-
 export enum Type {
   Water,
   InnerWall,
@@ -18,7 +16,7 @@ export class Particle {
 
   private ellipse: Phaser.GameObjects.Ellipse;
 
-  private type: Type;
+  type: Type;
   vel = new Phaser.Math.Vector2();
   pressure = 0;
 
